@@ -45,9 +45,29 @@ title("Spectrogram of Chrip linear from 0 to 8000Hz")
 audiowrite("team8-chirp.wav",chirpTone,fs);
 
 
+% generate CETK
+CETK = sinToneGen(392,1,fs);
 
+tempCETK = sinToneGen(440,1,fs);
+CETK(length(CETK)+1 : length(CETK)+length(tempCETK) ,1 ) = tempCETK ;
 
+tempCETK = sinToneGen(349,1,fs);
+CETK(length(CETK)+1 : length(CETK)+length(tempCETK) ,1 ) = tempCETK ;
 
+tempCETK = sinToneGen(174,1,fs);
+CETK(length(CETK)+1 : length(CETK)+length(tempCETK) ,1 ) = tempCETK ;
+
+tempCETK = sinToneGen(261,1,fs);
+CETK(length(CETK)+1 : length(CETK)+length(tempCETK) ,1 ) = tempCETK ;
+
+CETK = CETK/10;
+
+figure(3)
+SpectrogramPlot(CETK,fs)
+ylim([0 1000])
+title("Spectrogram of CETK")
+% sound(CETK,fs);
+audiowrite("team8-cetk.wav",CETK,fs);
 
 
 
@@ -101,6 +121,6 @@ recStereo(:,2) = recSine ;
 
 % reuse plot 1 and plot 4
 
-sound(recStereo,fs);
+% sound(recStereo,fs);
 audiowrite("team8-stereospeechsine.wav",recStereo,fs);
 
