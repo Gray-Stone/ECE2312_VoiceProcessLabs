@@ -92,7 +92,7 @@ audiowrite("team8-speechchirp.wav",recChirp,fs);
 % Filtering
 FlpPB = 4000 ; % Hz
 FlpSB = 4100 ; %Hz
-F=[ 0 FlpPB   FlpSB fs/2] ; % frequency up to nyquist frequency
+F=[ 0 FlpPB   FlpSB fs/2] ; % frequency up to niy
 F = F/(fs/2) ; % normalize to 1
 
 A=[1 1 0 0];
