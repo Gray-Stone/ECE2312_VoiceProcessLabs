@@ -44,6 +44,8 @@ secondFoldFs = firstFoldFs/2;
 LowSigLow = foldHalf( LowSig, firstFoldFs, true );
 LowSigHigh = foldHalf( LowSig, firstFoldFs, false);
 
+% due to first stage downsample fliping effect. This two are actually
+% fliped for frequency band. 
 HighSigLow = foldHalf( HighSig, firstFoldFs, true );
 HighSigHigh = foldHalf( HighSig, firstFoldFs, false);
 
@@ -56,13 +58,12 @@ SpectrogramPlot(  LowSigHigh , secondFoldFs);
 title("2000 - 4000 Hz signal  ");
 
 figure(7) ; 
-SpectrogramPlot(  HighSigLow , secondFoldFs);
-title("4000 - 6000 Hz signal (shoulud be 6-8K due to flip) ");
+SpectrogramPlot(  HighSigLow , secondFoldFs);   
+title("6000 - 8000 Hz signal (shoulud be 6-8K due to flip) ");
 
 figure(8) ; 
 SpectrogramPlot(  HighSigHigh , secondFoldFs);
-title("6000 - 8000 Hz signal  (shoulud be 4-6K due to flip) ");
-
+title("4000 - 6000 Hz signal  (shoulud be 4-6K due to flip) ");
 
 
 % restoring signals, example of up sampling.
